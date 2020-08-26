@@ -15,6 +15,7 @@ addons:
 branches:
   only:
     - master
+    - cucumber5
 
 services:
   - xvfb

@@ -3,7 +3,6 @@ language: ruby
 dist: bionic
 
 rvm:
-  - 2.4
   - 2.5
   - 2.6
   - 2.7
@@ -23,30 +22,11 @@ services:
 gemfile:
   - gemfiles/rails_6_0.gemfile
   - gemfiles/rails_5_2.gemfile
-  - gemfiles/rails_5_1.gemfile
-  - gemfiles/rails_5_0.gemfile
 
 matrix:
   fast_finish: true
   allow_failures:
     - rvm: ruby-head
-  exclude:
-  # Only test Rails6 on supported rubies
-  # Don't test lowest rails support on maintained rubies
-    - rvm: 2.4
-      gemfile: gemfiles/rails_6_0.gemfile
-    - rvm: 2.6
-      gemfile: gemfiles/rails_5_0.gemfile
-    - rvm: 2.6
-      gemfile: gemfiles/rails_5_1.gemfile
-    - rvm: 2.7
-      gemfile: gemfiles/rails_5_0.gemfile
-    - rvm: 2.7
-      gemfile: gemfiles/rails_5_1.gemfile
-    - rvm: ruby-head
-      gemfile: gemfiles/rails_5_0.gemfile
-    - rvm: ruby-head
-      gemfile: gemfiles/rails_5_1.gemfile
 
 before_install:
   - gem install --remote bundler -v '~> 1.17'
